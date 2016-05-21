@@ -1,0 +1,34 @@
+Total number of currently running services:0
+Applications Memory Usage (kB):
+Uptime: 15105240 Realtime: 15105240
+
+** MEMINFO in pid 12316 [com.mygdx.game] **
+                   Pss  Private  Private  Swapped     Heap     Heap     Heap
+                 Total    Dirty    Clean    Dirty     Size    Alloc     Free
+                ------   ------   ------   ------   ------   ------   ------
+  Native Heap    26314    26260        0        0    41320    29057       38
+  Dalvik Heap     4145     4088        0        0     5284     4074     1210
+ Dalvik Other     1699     1496        0        0                           
+        Stack      124      124        0        0                           
+       Ashmem        2        0        0        0                           
+    Other dev        4        0        4        0                           
+     .so mmap     2427      288      572        0                           
+    .apk mmap      105        0       20        0                           
+    .ttf mmap       92        0       68        0                           
+    .dex mmap     2642       20     2200        0                           
+   Other mmap        9        4        0        0                           
+      Unknown       60       60        0        0                           
+        TOTAL    37623    32340     2864        0    46604    33131     1248
+ 
+ Objects
+               Views:       21         ViewRootImpl:        2
+         AppContexts:        4           Activities:        2
+              Assets:        2        AssetManagers:        2
+       Local Binders:       10        Proxy Binders:       19
+    Death Recipients:        0
+     OpenSSL Sockets:        0
+ 
+ SQL
+         MEMORY_USED:        0
+  PAGECACHE_OVERFLOW:        0          MALLOC_SIZE:        0
+ 

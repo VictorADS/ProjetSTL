@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="filterSize_listEntries">
+        <item>5 notes</item>
+        <item>10 notes</item>
+        <item>15 notes</item>
+        <item>20 notes</item>
+        <item>30 notes</item>
+        <item>40 notes</item>
+        <item>50 notes</item>
+    </string-array>
+    <string-array name="filterSize_listValues">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+    </string-array>
+    <string-array name="seuilBruit_listEntries">
+        <item>Aucun</item>
+        <item>Faible</item>
+        <item>Moyen</item>
+        <item>Fort</item>
+    </string-array>
+    <string-array name="seuilBruit_listValues">
+        <item>-100.0</item>
+        <item>-80.0</item>
+        <item>-70.0</item>
+        <item>-60.0</item>
+    </string-array>
+
+</resources>

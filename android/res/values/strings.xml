@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Aiguille</string>
+    <string name="title_activity_main">AAAA</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+    <string name="settings">Settings</string>
+    <string name="filterSize_title">Taille du filtre</string>
+    <string name="filterSize_summary">Sélectionnez le nombre de notes gardees en memoire</string>
+    <string name="seuilBruit_title">Filtrage du bruit</string>
+    <string name="seuilBruit_summary">Sélectionnez le mode de filtrage du bruit</string>
+    <string name="action_settings">Settings</string>
+    <string name="record">Record</string>
+	<string name="play">Play</string>
+	<string name="yin">Yin</string>
+	<string name="text_n">text\\n</string>
+	<string name="startTablature">Tablature</string>
+	<string name="recording">Recording</string>
+	<string name="Avancement">Tablatures</string>
+	<string name="Lecture">Lecture</string>
+	<string name="Enregistrement">Enregistrement</string>
+	<string name="Calcul">Calcul Tablature</string>
+	<string name="borneTV">Bornes</string>
+    <string name="minPrompt">Borne min</string>
+    <string name="maxPrompt">Borne max</string>
+    <string name="goButton">GO</string>
+    <string name="methGenPrompt">Méthode de génération</string>
+    <string name="listNotes">Fichier à tablaturer</string>
+    <string name="mainButton">Tabs</string>
+    <string name="textViewHint">Tabs</string>
+    <!--   menu déroulant du mode de génération 
+     <string-array name="mgArray">
+        <item name="mgArrayAcceuil">mode de génération</item>
+        <item name="alea">Aléa</item>
+        <item name="bornee">Borné</item>
+        <item name="optNBornee">Optimum</item>
+    </string-array>-->
+    <string-array name="borneArray">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+    <string name="title_tablature">GTab </string>
+    <!--  <string name="returnButton">Retour</string> -->
+</resources>

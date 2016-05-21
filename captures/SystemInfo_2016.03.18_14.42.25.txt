@@ -1,0 +1,42 @@
+TASK com.mygdx.game id=1642
+  ACTIVITY com.mygdx.game/.AndroidLauncher 51181ff pid=19587
+    Local FragmentActivity 7f33bb3 State:
+      mCreated=truemResumed=true mStopped=false mReallyStopped=false
+      mLoadersStarted=true
+    Active Fragments in 85be00f:
+      #0: NeedleFragment{ec9ae61 #0 id=0x7f0b0054}
+        mFragmentId=#7f0b0054 mContainerId=#7f0b0054 mTag=null
+        mState=5 mIndex=0 mWho=android:fragment:0 mBackStackNesting=0
+        mAdded=true mRemoving=false mResumed=true mFromLayout=false mInLayout=false
+        mHidden=false mDetached=false mMenuVisible=true mHasMenu=false
+        mRetainInstance=false mRetaining=false mUserVisibleHint=true
+        mFragmentManager=FragmentManager{85be00f in HostCallbacks{7fd289c}}
+        mHost=android.support.v4.app.FragmentActivity$HostCallbacks@7fd289c
+        mContainer=android.widget.FrameLayout{dd202a5 V.E...... ........ 0,0-1080,1632 #7f0b0054 app:id/NeedleView}
+        mView=com.badlogic.gdx.backends.android.surfaceview.GLSurfaceView20{fd7967a VFE...... .F...... 0,0-1080,1632}
+        mInnerView=com.badlogic.gdx.backends.android.surfaceview.GLSurfaceView20{fd7967a VFE...... .F...... 0,0-1080,1632}
+        Child FragmentManager{b006e2b in NeedleFragment{ec9ae61}}:
+          FragmentManager misc state:
+            mHost=android.support.v4.app.FragmentActivity$HostCallbacks@7fd289c
+            mContainer=android.support.v4.app.Fragment$1@1023288
+            mParent=NeedleFragment{ec9ae61 #0 id=0x7f0b0054}
+            mCurState=5 mStateSaved=false mDestroyed=false
+    Added Fragments:
+      #0: NeedleFragment{ec9ae61 #0 id=0x7f0b0054}
+    FragmentManager misc state:
+      mHost=android.support.v4.app.FragmentActivity$HostCallbacks@7fd289c
+      mContainer=android.support.v4.app.FragmentActivity$HostCallbacks@7fd289c
+      mCurState=5 mStateSaved=false mDestroyed=false
+    View Hierarchy:
+      com.android.internal.policy.PhoneWindow$DecorView{6852421 V.E..... ... 0,0-1080,1776}
+        android.widget.LinearLayout{a38a046 V.E..... ... 0,0-1080,1776}
+          android.view.ViewStub{715c207 G.E..... ... 0,0-0,0 #10203ab android:id/action_mode_bar_stub}
+          android.widget.FrameLayout{dcbef34 V.E..... ... 0,0-1080,1776 #1020002 android:id/content}
+            android.widget.RelativeLayout{8eee15d V.E..... ... 0,0-1080,1776}
+              android.widget.RelativeLayout{14e7ad2 V.E..... ... 0,1632-1080,1776 #7f0b0050 app:id/BottomLayout}
+                android.widget.LinearLayout{84277a3 V.E..... ... 0,0-1080,144}
+                  android.widget.Button{fd2caa0 VFED..C. ... 0,0-360,144 #7f0b0051 app:id/button2}
+                  android.widget.Button{e3d3659 VFED..C. ... 360,0-720,144 #7f0b0052 app:id/button3}
+                  android.widget.Button{875721e VFED..C. ... 720,0-1080,144 #7f0b0053 app:id/button4}
+              android.widget.FrameLayout{dd202a5 V.E..... ... 0,0-1080,1632 #7f0b0054 app:id/NeedleView}
+                com.badlogic.gdx.backends.android.surfaceview.GLSurfaceView20{fd7967a VFE..... F.. 0,0-1080,1632}

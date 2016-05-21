@@ -1,0 +1,105 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:background="@drawable/theme_wood"
+    android:weightSum="1"
+    tools:context=".tablature.activities.MainActivity" >
+
+    <LinearLayout
+
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:visibility="visible"
+        android:orientation="vertical"
+        android:layout_width="match_parent">
+
+        <LinearLayout
+            android:id="@+id/borneLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:orientation="horizontal" >
+
+            <Spinner
+                android:id="@+id/tabSpinner"
+                android:layout_width="178dp"
+                android:layout_height="wrap_content"
+                android:prompt="@string/listNotes" />
+            
+		<!-- Le menu déroulant du mode de génération qui ser
+		
+			<Spinner
+                android:id="@+id/mgSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/mgArray"
+                android:prompt="@string/methGenPrompt" />-->
+            
+
+            <TextView
+                android:id="@+id/bornetv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/borneTV" />
+
+            <Spinner
+                android:id="@+id/minSpinner"
+                android:layout_width="109dp"
+                android:layout_height="wrap_content"
+                android:entries="@array/borneArray"
+                android:prompt="@string/minPrompt" />
+
+            <Spinner
+                android:id="@+id/maxSpinner"
+                android:layout_width="111dp"
+                android:layout_height="wrap_content"
+                android:entries="@array/borneArray"
+                android:prompt="@string/maxPrompt" />
+
+            <Button
+                android:id="@+id/borneButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/goButton"
+                android:clickable="true" />
+            
+           <!--   <Button
+                android:id="@+id/returnButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/returnButton"
+                android:onClick="onReturn" />-->
+        </LinearLayout>
+
+        <HorizontalScrollView
+            android:id="@+id/scrl"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:visibility="visible"
+            android:layout_weight="1" >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/scrLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:visibility="visible"
+                android:weightSum="1" >
+
+
+                <view
+                    android:layout_width="598dp"
+                    android:layout_height="wrap_content"
+                    class="com.mygdx.game.Gtab3.tablature.views.TablatureView"
+                    android:id="@+id/custom_view"
+                    android:visibility="visible"
+                    android:focusable="true" />
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
+</LinearLayout>

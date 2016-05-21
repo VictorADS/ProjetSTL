@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/hsv"    
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/theme_wood"
+    android:onClick="doStuff"
+    android:orientation="vertical"
+    android:weightSum="1"
+    tools:context=".tablature.activities.TabActivity" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/theme_wood"
+        android:onClick="doStuff"
+        android:orientation="vertical"
+        android:weightSum="1" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:onClick="doStuff"
+            android:orientation="vertical" >
+
+            <Spinner
+                android:id="@+id/tabSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <view
+            android:id="@+id/custom_view"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/linearLayout"
+            class="com.mygdx.game.Gtab3.tablature.views.TabView"
+            android:clickable="true"           
+            android:onClick="doStuff" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/tempoText"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/linearLayout"
+            android:layout_above="@+id/custom_view" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/goButton"
+            android:id="@+id/gobutton"
+            android:layout_alignParentTop="true"
+            android:onClick="playWholeSong"
+            android:layout_toRightOf="@+id/tempoText"
+            android:layout_alignBottom="@+id/tempoText" />
+
+        <!--
+          <HorizontalScrollView
+        android:id="@+id/scrl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/custom_view"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout"
+        android:fillViewport="false"
+        android:nestedScrollingEnabled="true"
+        android:onClick="doStuff" />
+        -->
+    </RelativeLayout>
+
+</HorizontalScrollView>
