@@ -38,7 +38,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Tune Your Guitar"
+            android:text="Guitar Tuner"
             android:id="@+id/textView"
             android:textColor="#ffffff"
             android:textStyle="bold"

@@ -12,6 +12,8 @@
     import android.content.DialogInterface;
     import android.content.Intent;
     import android.media.AudioFormat;
+    import android.media.AudioRecord;
+    import android.media.MediaRecorder;
     import android.os.Bundle;
     import android.os.Environment;
     import android.util.Log;
@@ -68,7 +70,7 @@
 
         @Override
         protected void onCreate(Bundle savedInstanceState)  {
-
+            Log.d("TESTTT","Valide  : "+validateMicAvailability());
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_ihm);
             record = (ImageButton) findViewById(R.id.startRecord);
@@ -154,6 +156,7 @@
                                                 e.printStackTrace();
                                             }
                                             out = new BufferedWriter(fwo);
+                                            initAudioDispatcher();
                                             new Thread(dispatcher,"AudioDispatcher").start();
                                             //console.setText("Enregistrement switch on\n"
                                             //		+ console.getText());
@@ -177,7 +180,6 @@
                 } else {
 
                     audio = AudioRecorder.getInstance();
-                    //record.setBackgroundResource(R.drawable.utilities_closemic);
                     audio.setOutputFile(mFileIn);
                     audio.prepare();
                     audio.start();
@@ -209,6 +211,7 @@
                     e.printStackTrace();
                 }
                 dispatcher.stop();
+                dispatcher=null;
 
 
                 FileWriter fwo2 = null;
@@ -241,101 +244,11 @@
              //   play.setEnabled(true);
               //  yin.setEnabled(true);
                 text.setEnabled(true);
+
             }
             isRecording = !isRecording;
         }
 
-       /* public void onPlay(View v) {
-            if (isPlaying) {
-                mFileIn = path + "/" + text.getText().toString() + ".wav";
-
-                if ((new File(mFileIn)).exists()) {
-                    play.setBackgroundResource(R.drawable.utilities_audio_stop);
-                    record.setEnabled(false);
-                    yin.setEnabled(false);
-                    text.setEnabled(false);
-                    mPlayer = new AudioPlayer(mFileIn);
-                    //console.setText("Lecture on\n" + console.getText());
-                    mPlayer.startPlaying();
-                } else {
-                    new AlertDialog.Builder(this)
-                            .setTitle("Be careful !")
-                            .setMessage(
-                                    "This file doesn't exist.\n Please choose another file")
-                            .setNeutralButton("Close", null).show();
-                    play.setBackgroundResource(R.drawable.videoplay);
-                    record.setEnabled(true);
-                    yin.setEnabled(true);
-                    text.setEnabled(true);
-                    isPlaying = !isPlaying;
-                }
-            } else {
-                mPlayer.stopPlaying();
-                play.setBackgroundResource(R.drawable.videoplay);
-                //console.setText("Lecture off\n" + console.getText());
-                play.setBackgroundResource(R.drawable.videoplay);
-                record.setEnabled(true);
-                yin.setEnabled(true);
-                text.setEnabled(true);
-            }
-            isPlaying = !isPlaying;
-        }
-
-        public void onYin(View v) {
-            long start = 0;
-            long end = 0;
-            long duration = 0;
-            record.setEnabled(false);
-            yin.setEnabled(false);
-            text.setEnabled(false);
-            process = new Process();
-            mFileIn = path + "/" + text.getText().toString() + ".wav";
-            mFileOut = path + "/" + text.getText().toString() + ".txt";
-
-            if ((new File(mFileIn)).exists()) {
-                try {
-                    //console.setText("Yin switch on \n" + console.getText());
-                    start = System.currentTimeMillis();
-                    process.process(mFileIn, mFileOut);
-                    end = System.currentTimeMillis();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                //console.setText("Yin créé \n" + console.getText());
-                duration = (end - start) / 1000;
-                //console.setText("Temps d'exécution : " + duration + "s\n"
-                //		+ console.getText());
-
-                /*new AlertDialog.Builder(this)
-                        .setTitle("Continue")
-                        .setMessage(
-                                "Do you want to generate the corresponding tablature?")
-                        .setPositiveButton("Yes",
-                                new DialogInterface.OnClickListener() {
-
-                                    @Override
-                                    public void onClick(DialogInterface dialog,
-                                            int which) {
-                                        //lance mainactivity
-                                         Intent intent = new Intent(IHMActivity.this, MainActivity.class);
-                                        // intent.putExtra("fileName", mFileOut);
-                                         startActivity(intent);
-                                        //dialog.cancel();// a enlever
-                                    }
-                                }).setNegativeButton("No", null).show();
-            } else {
-                new AlertDialog.Builder(this)
-                        .setTitle("Be careful !")
-                        .setMessage(
-                                "This file doesn't exist.\n Please choose another file")
-                        .setNeutralButton("Close", null).show();
-
-            }
-            record.setEnabled(true);
-            yin.setEnabled(true);
-            text.setEnabled(true);
-            onTablature(v);
-        }*/
 
         public void onTablature(View v) {
             Intent intent = new Intent(IHMActivity.this, TabActivity.class);
@@ -345,23 +258,50 @@
 
         public void onPause(){
             super.onPause();
-            Log.d("Pause", "Jai fait pause");
-            if(dispatcher!=null) {
+            Log.d("Pause", "Jai fait pause "+isRecording);
+            if(dispatcher!=null && !isRecording) {
                 dispatcher.stop();
-                isPlaying = false;
+                dispatcher=null;
+                audio.stop();
+                audio.release();
+                Log.d("TESTTT","Valide  : "+validateMicAvailability());
             }
         }
 
-        @Override
+  /*      @Override
         public void onResume(){
             super.onResume();
             Log.d("Resume", "Debut onResume");
-            if(dispatcher!=null && !isPlaying) {
+            if(dispatcher!=null) {
+                Log.d("TESTTT","Valide  : "+validateMicAvailability());
                 initAudioDispatcher();
-                isPlaying=true;
-                Log.d("Resume","Not null");
             }
             Log.d("Resume", "Fin onResume");
-        }
+        }*/
+        private boolean validateMicAvailability(){
+            Boolean available = true;
+            AudioRecord recorder =
+                    new AudioRecord(MediaRecorder.AudioSource.MIC, 44100,
+                            AudioFormat.CHANNEL_IN_MONO,
+                            AudioFormat.ENCODING_DEFAULT, 44100);
+            try{
+                if(recorder.getRecordingState() != AudioRecord.RECORDSTATE_STOPPED ){
+                    available = false;
 
+                }
+
+                recorder.startRecording();
+                if(recorder.getRecordingState() != AudioRecord.RECORDSTATE_RECORDING){
+                    recorder.stop();
+                    available = false;
+
+                }
+                recorder.stop();
+            } finally{
+                recorder.release();
+                recorder = null;
+            }
+
+            return available;
+        }
     }
