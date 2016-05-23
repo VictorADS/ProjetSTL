@@ -64,7 +64,7 @@ public class IHMManager extends ApplicationAdapter {
 		cadre.setPosition(48, -88);
 		cadre.setSize(975, 1080);
 
-		bgImage = new Texture(Gdx.files.internal("Background.png"));
+		bgImage = new Texture(Gdx.files.internal("Background2.png"));
 		background = new Sprite(bgImage);
 		background.setSize(1100, 1950);
 		background.setPosition(0, 0);

@@ -82,6 +82,13 @@
             text.setEnabled(true);
 
             freq = new ArrayList<String>();
+
+            // A vérifier
+            initAudioDispatcher();
+        }
+
+        // Pas sûr que ça soit bon
+        public void initAudioDispatcher(){
             dispatcher = AudioDispatcherFactory.fromDefaultMicrophone(22050, 1024, 0);
             PitchDetectionHandler pdh = new PitchDetectionHandler() {
                 @Override
@@ -90,8 +97,8 @@
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                           // if (pitchInHz != -1)
-                           try {
+                            // if (pitchInHz != -1)
+                            try {
                                 freq.add(Float.toString(pitchInHz));
                                 out.write(Float.toString(pitchInHz));
                                 out.newLine();
@@ -334,6 +341,27 @@
             Intent intent = new Intent(IHMActivity.this, TabActivity.class);
              //Intent intent = new Intent(IHMActivity.this,MainActivity.class);
              startActivity(intent);
+        }
+
+        public void onPause(){
+            super.onPause();
+            Log.d("Pause", "Jai fait pause");
+            if(dispatcher!=null) {
+                dispatcher.stop();
+                isPlaying = false;
+            }
+        }
+
+        @Override
+        public void onResume(){
+            super.onResume();
+            Log.d("Resume", "Debut onResume");
+            if(dispatcher!=null && !isPlaying) {
+                initAudioDispatcher();
+                isPlaying=true;
+                Log.d("Resume","Not null");
+            }
+            Log.d("Resume", "Fin onResume");
         }
 
     }
